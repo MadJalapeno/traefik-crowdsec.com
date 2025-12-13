@@ -1,0 +1,38 @@
+[
+  {
+    "title": "What Does It Do?",
+    "description": "The script installs Traefik as your reverse proxy with automatic HTTPS certificates and integrates CrowdSec for intelligent threat protection. Everything runs in Docker containers.",
+    "code": "$ ./install.sh\n\n✓ Checking Ports \n✓ Checking Docker\n✓ Installing Traefik\n✓ Configuring CrowdSec\n✓ Setting up bouncers\n✓ Generating SSL certificates\n\nAll done!",
+    "codePosition": "right"
+  },
+  {
+    "title": "Automatic SSL Certificates",
+    "description": "Traefik handles SSL certificates automatically via Let's Encrypt. Just add labels to your Docker services and certificates are obtained and renewed automatically.",
+    "code": "services:\n  nginx:\n    image: nginx\n    labels:\n      - \"traefik.enable=true\"\n      - \"traefik.http.routers.nginx.rule=Host(`nginx.example.com`)\"\n      - \"traefik.http.routers.nginx.tls.certresolver=letsencrypt\"",
+    "codePosition": "left"
+  },
+  {
+    "title": "Real-time Security",
+    "description": "CrowdSec monitors your traffic in real-time, detects malicious behavior, and automatically blocks threats. It shares intelligence with a global community to stay ahead of attackers.",
+    "code": "$ cscli decisions list\n\n┌──────────────────┬──────────┬───────────────┐\n│ IP               │ Duration │ Reason        │\n├──────────────────┼──────────┼───────────────┤\n│ 192.168.1.100    │ 4h       │ bruteforce    │\n│ 10.0.0.50        │ 24h      │ http-probing  │\n│ 172.16.0.10      │ 1h       │ bad-reputation│\n└──────────────────┴──────────┴───────────────┘",
+    "codePosition": "right"
+  },
+  {
+    "title": "Simple Architecture",
+    "description": "Three containers work together seamlessly: Traefik routes traffic, CrowdSec analyzes logs, and the bouncer blocks threats. All connected via a dedicated Docker network.",
+    "code": "$ docker ps\n\nCONTAINER ID   IMAGE\na1b2c3d4e5f6   traefik:latest\nb2c3d4e5f6g7   crowdsec/crowdsec\nc3d4e5f6g7h8   crowdsec/traefik-bouncer\n\n$ docker network ls\n\nNETWORK ID     NAME\nabc123def456   proxy",
+    "codePosition": "left"
+  },
+  {
+    "title": "Easy to Customize",
+    "description": "All configuration is stored in simple YAML files. Modify routing rules, add middleware, customize CrowdSec scenarios, or adjust security policies with ease.",
+    "code": "$ tree config/\nconfig/\n├── traefik/\n│   ├── traefik.yml\n│   ├── conf/\n│   └── certs/ \n└── crowdsec/\n    ├── acquis.yaml\n    └── scenarios/\n        └── custom-rules.yaml",
+    "codePosition": "right"
+  },
+  {
+    "title": "Built-in Monitoring",
+    "description": "Monitor everything through Traefik's web dashboard and CrowdSec's command-line tools. You can also sign up for more monitoring at https://crowdsec.net.",
+    "code": "Dashboards:\n\n🔷 Traefik Dashboard\n   https://traefik.yourdomain.com\n   View routers, services, middleware\n\n🛡️ CrowdSec Metrics  \n   $ cscli metrics\n   Decisions, scenarios, parsers\n",
+    "codePosition": "left"
+  }
+]

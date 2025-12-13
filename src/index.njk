@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+---
+
+{% include "partials/header.njk" %}
+
+<main role="main">
+  {% include "partials/install.njk" %}
+
+  {% include "partials/why.njk" %}
+
+  <!-- Features Section -->
+  <section class="max-w-5xl mx-auto px-6 py-20" aria-labelledby="features-heading">
+    <h2 id="features-heading" class="sr-only">Features and Benefits</h2>
+    
+    <div class="space-y-16">
+      {% for feature in features %}
+        {% set title = feature.title %}
+        {% set description = feature.description %}
+        {% set code = feature.code %}
+        {% set codePosition = feature.codePosition %}
+        {% include "partials/feature.njk" %}
+      {% endfor %}
+    </div>
+  </section>
+
+  {% include "partials/resources.njk" %}
+</main>
+
+{% include "partials/footer.njk" %}

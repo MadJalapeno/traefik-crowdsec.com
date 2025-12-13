@@ -1,0 +1,8 @@
+{
+  "title": "Easy Traefik + CrowdSec Docker Setup",
+  "description": "Simple installation script for Traefik reverse proxy with CrowdSec security. Automatic SSL certificates, Docker integration, and real-time threat protection in minutes.",
+  "url": "https://traefik-crowdsec.com",
+  "author": "Mike",
+  "github": "https://github.com/MadJalapeno/homelab-traefik/",
+  "logo": "🛡️"
+}
