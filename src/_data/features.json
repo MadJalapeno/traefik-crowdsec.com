@@ -2,7 +2,7 @@
   {
     "title": "What Does It Do?",
     "description": "The script installs Traefik as your reverse proxy with automatic HTTPS certificates and integrates CrowdSec for intelligent threat protection. Everything runs in Docker containers.",
-    "code": "$ ./install.sh\n\n✓ Checking Ports \n✓ Checking Docker\n✓ Installing Traefik\n✓ Configuring CrowdSec\n✓ Setting up bouncers\n✓ Generating SSL certificates\n\nAll done!",
+    "code": "$ ./install.sh\n\n✓ Docker Installed \n✓ Docker daemon is running\n✓ Port 80 and 443 are free\n✓ Installing Traefik & CrowdSec\n✓ Setting up bouncers\n✓ Generating SSL certificates\n\nAll done!",
     "codePosition": "right"
   },
   {

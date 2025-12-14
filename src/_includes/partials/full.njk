@@ -1,0 +1,183 @@
+<section class="max-w-5xl mx-auto px-6 -mt-12" aria-labelledby="install-heading">
+  <div class="bg-gray-800 rounded-xl shadow-2xl p-10 border border-gray-700">
+    <h2 id="install-heading" class="text-3xl font-bold mb-6 text-gray-100">Example Build</h2>
+    <pre class="bg-black rounded-lg p-6 mb-6 overflow-x-auto pre-scrollable">
+      <code class="text-green-400 font-mono text-xs">
+
+root@hetzner:/root# wget https://raw.githubusercontent.com/MadJalapeno/homelab-traefik/refs/heads/main/install.sh
+--2025-12-14 00:15:18--  https://raw.githubusercontent.com/MadJalapeno/homelab-traefik/refs/heads/main/install.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 8979 (8.8K) [text/plain]
+Saving to: 'install.sh'
+
+install.sh                                                     100%[==================================================================================================================================================>]   8.77K  --.-KB/s    in 0s      
+
+2025-12-14 00:15:18 (32.6 MB/s) - 'install.sh' saved [8979/8979]
+
+root@hetzner:/root# chmod +x install.sh 
+root@hetzner:/root# ./install.sh 
+V 0.1.0 - Grouped Stack Approach
+*******
+Checking system requirements
+*******
+
+✓ Docker installed (version: 28.5.1)
+✓ Docker Compose installed (version: 2.40.2)
+✓ Docker daemon is running
+✓ Docker permissions OK
+
+*******
+Checking ports available
+*******
+
+Port 80 free
+Port 443 free
+Port 8080 free
+
+All ports available!
+
+Please enter your info
+
+Your Domain Name for certificates: example.com
+Your Cloudflare API Key: [create a key on cloudflare for your zone]
+Email for Lets Encrypt: letsencrypt@example.com
+Installation directory [/opt/docker/traefik-stack]: 
+
+Creating directory structure...
+Certificates will be stored in: /opt/docker/traefik-stack/traefik/config/certs/
+Dynamic configs monitored in: /opt/docker/traefik-stack/traefik/config/conf/
+
+Downloading configuration files...
+Cloning into '/opt/docker/traefik-stack'...
+remote: Enumerating objects: 121, done.
+remote: Counting objects: 100% (121/121), done.
+remote: Compressing objects: 100% (89/89), done.
+remote: Total 121 (delta 44), reused 86 (delta 23), pack-reused 0 (from 0)
+Receiving objects: 100% (121/121), 22.30 KiB | 845.00 KiB/s, done.
+Resolving deltas: 100% (44/44), done.
+
+Configuring files with your information...
+Updating .env file
+Updating docker-compose.yml
+Configuration complete
+
+Creating Docker network...
+Network 'proxy' already exists
+
+Starting Traefik...
+[+] Running 5/5
+ ✔ traefik Pulled                                                                                                                                                                                                                                    9.5s 
+   ✔ 2d35ebdb57d9 Already exists                                                                                                                                                                                                                     0.0s 
+   ✔ 8aeb4cefcd95 Pull complete                                                                                                                                                                                                                      1.3s 
+   ✔ efdb5f46fa18 Pull complete                                                                                                                                                                                                                      7.7s 
+   ✔ d4a90fc484f6 Pull complete                                                                                                                                                                                                                      7.8s 
+[+] Running 1/1
+ ✔ Container traefik  Started                                                                                                                                                                                                                        0.7s 
+Waiting for Traefik to initialize...
+Traefik started
+
+Starting CrowdSec...
+[+] Running 10/10
+ ✔ crowdsec Pulled                                                                                                                                                                                                                                   9.3s 
+   ✔ f637881d1138 Pull complete                                                                                                                                                                                                                      1.0s 
+   ✔ 6774f787086e Pull complete                                                                                                                                                                                                                      1.3s 
+   ✔ 069d0590ee44 Pull complete                                                                                                                                                                                                                      4.6s 
+   ✔ 9aa81eb4aef6 Pull complete                                                                                                                                                                                                                      4.7s 
+   ✔ a122a0eabcce Pull complete                                                                                                                                                                                                                      4.7s 
+   ✔ 5940392cd12a Pull complete                                                                                                                                                                                                                      4.7s 
+   ✔ c7071de5156d Pull complete                                                                                                                                                                                                                      5.9s 
+   ✔ 4c6af1387582 Pull complete                                                                                                                                                                                                                      6.0s 
+   ✔ 54f5f0313a47 Pull complete                                                                                                                                                                                                                      7.7s 
+[+] Running 2/2
+ ✔ Container traefik   Running                                                                                                                                                                                                                       0.0s 
+ ✔ Container crowdsec  Started                                                                                                                                                                                                                       2.9s 
+Waiting for CrowdSec to initialize before we grab an API key(60 seconds)...
+60 50 40 30 20 10 
+CrowdSec started
+
+Configuring CrowdSec Bouncer...
+Generating API key...
+API Key generated successfully
+API Key: [redacted]
+
+Starting CrowdSec Bouncer...
+[+] Running 5/5
+ ✔ bouncer Pulled                                                                                                                                                                                                                                    4.3s 
+   ✔ 79e0d8860fad Pull complete                                                                                                                                                                                                                      0.9s 
+   ✔ bf75762436b0 Pull complete                                                                                                                                                                                                                      1.3s 
+   ✔ 7e335a1999f3 Pull complete                                                                                                                                                                                                                      1.4s 
+   ✔ 220a13292c9d Pull complete                                                                                                                                                                                                                      1.7s 
+[+] Running 3/3
+ ✔ Container traefik          Running                                                                                                                                                                                                                0.0s 
+ ✔ Container crowdsec         Running                                                                                                                                                                                                                0.0s 
+ ✔ Container bouncer-traefik  Started                                                                                                                                                                                                                0.7s 
+Waiting for bouncer to start...
+
+***************************************
+   Installation Complete!
+***************************************
+
+Installation Summary:
+Installation directory: /opt/docker/traefik-stack
+Domain: example.com
+Traefik Dashboard: https://traefik.example.com
+
+Services Status:
+NAME              IMAGE                                COMMAND                  SERVICE    CREATED              STATUS                            PORTS
+bouncer-traefik   fbonalair/traefik-crowdsec-bouncer   "/app"                   bouncer    6 seconds ago        Up 5 seconds (health: starting)   
+crowdsec          crowdsecurity/crowdsec:latest        "/bin/bash /docker_s…"   crowdsec   About a minute ago   Up About a minute                 
+traefik           traefik:latest                       "/entrypoint.sh trae…"   traefik    About a minute ago   Up About a minute                 0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+
+Directory Structure:
+/opt/docker/traefik-stack/
+├── docker-compose.yml    # Main stack configuration
+├── .env                  # Environment variables
+├── logs/                 # Traefik logs (monitored by CrowdSec)
+├── traefik/
+│   └── config/
+│       ├── traefik.yml            # Main Traefik config
+│       ├── certs/                 # SSL certificates (acme.json)
+│       └── conf/                  # Dynamic configs (auto-monitored)
+│           ├── README.md          # How to use dynamic configs
+│           └── *.yml              # Add your service configs here
+└── crowdsec/
+    ├── config/           # CrowdSec configuration
+    │   └── acquis.yaml   # Log acquisition config
+    └── data/             # CrowdSec data
+
+Certificate Information:
+  Location: /opt/docker/traefik-stack/traefik/config/certs/acme.json
+  Provider: Let's Encrypt via Cloudflare DNS-01 challenge
+  Auto-renewal: Handled automatically by Traefik
+  Wildcard cert: *.example.com and example.com
+
+Dynamic Configuration:
+  Monitored directory: /opt/docker/traefik-stack/traefik/config/conf/
+  Add .yml files here to configure new services
+  Changes are detected automatically (no restart needed)
+  See README.md in that directory for examples
+
+Useful Commands (run from /opt/docker/traefik-stack):
+  docker compose ps                    # View all services
+  docker compose logs -f               # View all logs
+  docker compose logs -f traefik       # View Traefik logs
+  docker compose restart               # Restart all services
+  docker compose down                  # Stop all services
+  docker compose up -d                 # Start all services
+
+CrowdSec Commands:
+  docker exec crowdsec cscli decisions list      # View blocked IPs
+  docker exec crowdsec cscli metrics             # View metrics
+  docker exec crowdsec cscli alerts list         # View alerts
+  docker exec crowdsec cscli bouncers list       # View bouncers
+
+Done! Your Traefik security stack is running.
+
+root@hetzner:/root# 
+
+      </code>
+    </pre>
+  </div>
+</section>

@@ -1,15 +1,27 @@
-<section class="max-w-6xl mx-auto px-6 -mt-12" aria-labelledby="install-heading">
+<section class="max-w-5xl mx-auto px-6 -mt-12" aria-labelledby="install-heading">
   <div class="bg-gray-800 rounded-xl shadow-2xl p-10 border border-gray-700">
     <h2 id="install-heading" class="text-3xl font-bold mb-6 text-gray-100">Install Script</h2>
-    <div class="bg-black rounded-lg p-6 mb-6 overflow-x-auto">
-      <code class="text-green-400 font-mono text-sm">
-        <div class="mb-4">wget https://raw.githubusercontent.com/MadJalapeno/homelab-traefik/refs/heads/main/install.sh</div>
-        <div class="mb-4">chmod +x install.sh</div>
-        <div class="mb-4">./install.sh</div>
-      </code>
+
+    <div class="mb-4"> You will need: 
+      <ul class="ml-8 list-disc">
+        <li>A server running docker - I like <a href="https://hetzner.com">hetzner.com</a>.</li>
+        <li>Your own domain - I like <a href="https://porkbun.com">porkbun.com</a>.</li>
+        <li>A <a href="https://dash.cloudflare.com/profile/api-tokens">Cloudflare API key</a></li>
+        <li>SSH access to your server</li>
+      </ul>
     </div>
-    <p class="text-gray-300 leading-relaxed">
-      Copy and paste that in your terminal. The script checks ports are available, you have docker installed, and then asks for paths, etc before it does anything. 
-    </p>
+
+    <div class="bg-black rounded-lg mb-6 p-4 overflow-x-auto">
+      <pre><code class="text-green-400 font-mono text-sm" id="codeBlock">
+wget https://raw.githubusercontent.com/MadJalapeno/homelab-traefik/refs/heads/main/install.sh
+chmod +x install.sh
+./install.sh
+      </code></pre>
+
+    </div>
+    <div class="text-gray-300 leading-relaxed">
+      Copy and paste the text above in your terminal. The script checks ports are available, you have docker installed, and then asks for paths, etc before it does anything. See below for a full run.
+    </div>
   </div>
 </section>
+
