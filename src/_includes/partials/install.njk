@@ -12,11 +12,15 @@ chmod +x install.sh
       </code></pre>
 
     </div>
-    <div class="text-gray-300 leading-relaxed mt-4">
-      Copy and paste the above text into a terminal window. The script checks ports are available, you have docker installed, and then asks for paths, etc before it does anything. See below for a full run.
+    <div class="text-gray-300 leading-relaxed my-4">
+      Copy and paste the above text into a terminal window. 
+    </div>
+      
+    <div class="text-gray-300 leading-relaxed my-4">
+      The script checks ports 80, 443 and 8080 are available, you have docker installed, and then asks for paths, etc before it does anything. See below for a <a href="#full">full build run</a> and <a href="#example">example configs</a>.
     </div>
 
-    <div class="mb-4 mt-4"> You will need: 
+    <div class="my-4 text-gray-300 leading-relaxed"> You will need: 
       <ul class="ml-8 list-disc">
         <li>A server running docker - I like <a href="https://hetzner.cloud/?ref=LZhMl2MVGVFw">hetzner.com</a> [link gets you a free €20 credit].</li>
         <li>Your own domain - I use <a href="https://porkbun.com">porkbun.com</a> as they have great prices and a huge selection of TLD's.</li>
@@ -25,7 +29,7 @@ chmod +x install.sh
       </ul>
     </div>
 
-    <div class="text-gray-300 leading-relaxed mt-4">
+    <div class="text-gray-300 leading-relaxed my-4">
       tip - Make sure you add your other containers to the 'traefik-proxy' network, otherwise you might waste an hour wondering why they're not showing up 😳
     </div>
   </div>
