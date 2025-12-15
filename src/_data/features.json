@@ -8,7 +8,7 @@
   {
     "title": "Automatic SSL Certificates",
     "description": "Traefik handles SSL certificates automatically via Let's Encrypt. Just add labels to your Docker services and certificates are obtained and renewed automatically.",
-    "code": "services:\n  nginx:\n    image: nginx\n    labels:\n      - \"traefik.enable=true\"\n      - \"traefik.http.routers.nginx.rule=Host(`nginx.example.com`)\"\n      - \"traefik.http.routers.nginx.tls.certresolver=letsencrypt\"",
+    "code": "services:\n  nginx:\n    image: nginx\n    labels:\n      - \"traefik.enable=true\"",
     "codePosition": "left"
   },
   {

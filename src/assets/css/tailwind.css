@@ -1,2 +1,8 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography"; /* https://github.com/tailwindlabs/tailwindcss-typography */
+
+@layer base {
+  a {
+    @apply text-cyan-400 hover:text-cyan-300;
+  }
+}

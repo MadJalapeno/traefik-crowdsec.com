@@ -2,14 +2,7 @@
   <div class="bg-gray-800 rounded-xl shadow-2xl p-10 border border-gray-700">
     <h2 id="install-heading" class="text-3xl font-bold mb-6 text-gray-100">Install Script</h2>
 
-    <div class="mb-4"> You will need: 
-      <ul class="ml-8 list-disc">
-        <li>A server running docker - I like <a href="https://hetzner.com">hetzner.com</a>.</li>
-        <li>Your own domain - I like <a href="https://porkbun.com">porkbun.com</a>.</li>
-        <li>A <a href="https://dash.cloudflare.com/profile/api-tokens">Cloudflare API key</a></li>
-        <li>SSH access to your server</li>
-      </ul>
-    </div>
+
 
     <div class="bg-black rounded-lg mb-6 p-4 overflow-x-auto">
       <pre><code class="text-green-400 font-mono text-sm" id="codeBlock">
@@ -19,11 +12,21 @@ chmod +x install.sh
       </code></pre>
 
     </div>
-    <div class="text-gray-300 leading-relaxed">
-      Copy and paste the text above in your terminal. The script checks ports are available, you have docker installed, and then asks for paths, etc before it does anything. See below for a full run.
+    <div class="text-gray-300 leading-relaxed mt-4">
+      Copy and paste the above text into a terminal window. The script checks ports are available, you have docker installed, and then asks for paths, etc before it does anything. See below for a full run.
     </div>
-    <div class="text-gray-300 leading-relaxed">
-      [tip: Make sure you add your other containers to the 'traefik-proxy' network, otherwise you might waste an hour wondering why they're not showing up 😳]
+
+    <div class="mb-4 mt-4"> You will need: 
+      <ul class="ml-8 list-disc">
+        <li>A server running docker - I like <a href="https://hetzner.cloud/?ref=LZhMl2MVGVFw">hetzner.com</a> [link gets you a free €20 credit].</li>
+        <li>Your own domain - I use <a href="https://porkbun.com">porkbun.com</a> as they have great prices and a huge selection of TLD's.</li>
+        <li>A <a href="https://dash.cloudflare.com/profile/api-tokens">Cloudflare API key</a></li>
+        <li>SSH access to your server</li>
+      </ul>
+    </div>
+
+    <div class="text-gray-300 leading-relaxed mt-4">
+      tip - Make sure you add your other containers to the 'traefik-proxy' network, otherwise you might waste an hour wondering why they're not showing up 😳
     </div>
   </div>
 </section>
